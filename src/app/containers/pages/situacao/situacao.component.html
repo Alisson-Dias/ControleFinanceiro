@@ -1,0 +1,72 @@
+<div class="container col-12">
+   <div class="row">
+        <div class="col">    
+            <div class="card shadow">
+                <div class="card-header">Receita</div>   
+                <div class="card-body" [ngClass]="{'bg-danger text-white': total.receita < 0, 'bg-success text-white': total.receita > 0}">
+                    <div class="row">
+                        <div class="col-6">
+                            <ul>
+                                <li style="font-size: 20px">
+                                    R$ {{ total.receita }}
+                                </li>
+                            </ul> 
+                        </div>
+                    </div>    
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+        <div class="col">    
+            <div class="card shadow">
+                <div class="card-header">Despesas</div>   
+                <div class="card-body"[ngClass]="{'bg-danger text-white': total.despesas > total.receita , 'bg-success text-white': total.despesas > 0}">
+                    <div class="row">
+                        <div class="col-6">
+                            <ul>
+                                <li style="font-size: 20px">
+                                    R$ {{ total.despesas}}
+                                </li>
+                            </ul>                           
+                        </div>
+                    </div>                
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+        <div class="col">    
+            <div class="card shadow ">
+                <div class="card-header">Lucro/Prejuízo</div>   
+                <div class="card-body"[ngClass]="{'bg-danger text-white': total.lucroPrejuizo  < 0, 'bg-success text-white': total.lucroPrejuizo >= 0}">
+                    <div class="row">
+                        <div class="col-6">
+                            <ul>
+                                <li style="font-size: 20px">
+                                    R$ {{ total.lucroPrejuizo }}
+                                </li>
+                            </ul> 
+                        </div>
+                    </div>                
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+        <div class="col">    
+            <div class="card shadow">
+                <div class="card-header">Lucratividade</div>   
+                <div class="card-body"[ngClass]="{'bg-danger text-white': total.lucratividade < 0, 'bg-success  text-white': total.lucratividade > 0}">
+                    <div class="row">
+                        <div class="col-6">
+                            <ul>
+                                <li style="font-size: 20px">
+                                    %{{ total.lucratividade }}
+                                </li>
+                            </ul> 
+                        </div>
+                    </div>                
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+    </div>
+</div>

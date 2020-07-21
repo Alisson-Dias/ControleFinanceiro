@@ -1,0 +1,35 @@
+<div class="pos-f-t">
+  
+    
+    <div class="collapse fixed-top" id="navbarToggleExternalContent">
+     
+      <div class="bg-dark p-4">
+        <h5 class="text-white h4">TESTE</h5>
+        <span class="text-muted">
+            <ul class="navbar-nav mr-auto" >
+                <li class="nav-item active">
+                    <a class="nav-link text-white " href="/entrar"  >Entrar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/categoria">Categorias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/situacao/1">Situação</a>
+                </li>
+            </ul>
+        </span>
+      </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <button class="btn btn-primary" (click)="botaoSair()" type="reset">Sair</button>    
+    </nav>
+  </div>
+
+    <router-outlet></router-outlet>
+
+    <nav class="navbar fixed-bottom bg-dark text-monospace">
+        <a class="navbar-brand text-white " href="#">Financeiro Digital</a>
+    </nav>

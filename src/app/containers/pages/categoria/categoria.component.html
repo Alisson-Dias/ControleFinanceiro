@@ -1,0 +1,346 @@
+
+<div class="container-fluid">
+    <form name="formCategoria.form" method="post" class="card-footer">
+        <div class="text-right">
+            <button class="btn btn-primary" (click)="botoesSalvar()" type="submit">Salvar</button>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <div class="card shadow"> 
+                    <div class="card-header">Total Renda Mensal</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">      
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorRenda"
+                                        [(ngModel)]="valorRenda" #name="ngModel" name="valorRenda" />
+                                    <label class="custom-control-label" for="valorRenda">Renda</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorRenda" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="renda.valorRenda"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>                                   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow mt-3">
+                    <div class="card-header">Alimentação</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorSupermercado"
+                                        [(ngModel)]="valorSupermercado" #name="ngModel" name="valorSupermercado" />
+                                    <label class="custom-control-label" for="valorSupermercado">Supermercado</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorSupermercado" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="alimentacao.valorSupermercado"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorRestaurante"
+                                        [(ngModel)]="valorRestaurante" #name="ngModel" name="valorRestaurante" />
+                                    <label class="custom-control-label" for="valorRestaurante">Restaurante</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorRestaurante" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="alimentacao.valorRestaurante"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorBarLanche"
+                                        [(ngModel)]="valorBarLanche" #name="ngModel" name="valorBarLanche" />
+                                    <label class="custom-control-label" for="valorBarLanche">Bar/Lanches</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorBarLanche" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="alimentacao.valorBarLanche"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>         
+            </div>
+            <div class="col-sm">
+                <div class="card shadow">
+                    <div class="card-header">Moradia</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorAluguel"
+                                        [(ngModel)]="valorAluguel" #name="ngModel" name="valorAluguel" />
+                                    <label class="custom-control-label" for="valorAluguel">Aluguel</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorAluguel" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="moradia.valorAluguel"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorCondominio"
+                                        [(ngModel)]="valorCondominio" #name="ngModel" name="valorCondominio" />
+                                    <label class="custom-control-label" for="valorCondominio">Condomínio</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorCondominio" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="moradia.valorCondominio"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorContaLuz"
+                                        [(ngModel)]="valorContaLuz" #name="ngModel" name="valorContaLuz" />
+                                    <label class="custom-control-label" for="valorContaLuz">Conta De Luz</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorContaLuz" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="moradia.valorContaLuz"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">                                    
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorContaAgua"
+                                        [(ngModel)]="valorContaAgua" #name="ngModel" name="valorContaAgua" />
+                                    <label class="custom-control-label" for="valorContaAgua">Conta De Agua</label>
+                                </div>
+                            </div>
+                            <div class="col">                                    
+                                <div *ngIf="valorContaAgua" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="moradia.valorContaAgua"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorGas"
+                                        [(ngModel)]="valorGas" #name="ngModel" name="valorGas" />
+                                    <label class="custom-control-label" for="valorGas">Gás/Agua Mineral</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorGas" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="moradia.valorGas"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id=" valorIptu"
+                                        [(ngModel)]=" valorIptu" #name="ngModel" name=" valorIptu" />
+                                    <label class="custom-control-label" for=" valorIptu">IPTU</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf=" valorIptu" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="moradia.valorIptu"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorTelefone"
+                                        [(ngModel)]="valorTelefone" #name="ngModel" name="valorTelefone" />
+                                    <label class="custom-control-label" for="valorTelefone">Telefone
+                                        residencial/internet</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorTelefone" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="moradia.valorTelefone"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorTelefoneCelular"
+                                        [(ngModel)]="valorTelefoneCelular" #name="ngModel"
+                                        name="valorTelefoneCelular" />
+                                    <label class="custom-control-label" for="valorTelefoneCelular">Telefone Celular</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorTelefoneCelular" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="moradia.valorTelefoneCelular"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorConserto"
+                                        [(ngModel)]="valorConserto" #name="ngModel" name="valorConserto" />
+                                    <label class="custom-control-label" for="valorConserto">Consertos/Manutenção</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorConserto" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="moradia.valorConserto"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card shadow">
+                    <div class="card-header">Transporte</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorCombustivel"
+                                        [(ngModel)]="valorCombustivel" #name="ngModel" name="valorCombustivel" />
+                                    <label class="custom-control-label" for="valorCombustivel">Combústivel</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorCombustivel" class="input-group">
+                                    <input class="form-control" currencyMask [(ngModel)]="transporte.valorCombustivel"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorTransportePrivado"
+                                        [(ngModel)]="valorTransportePrivado" #name="ngModel"
+                                        name="valorTransportePrivado" />
+                                    <label class="custom-control-label" for="valorTransportePrivado">Transporte Privado</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorTransportePrivado" class="input-group">
+                                    <input class="form-control" currencyMask
+                                        [(ngModel)]="transporte.valorTransportePrivado"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-switch  mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="valorTransportePublico"
+                                        [(ngModel)]="valorTransportePublico" #name="ngModel"
+                                        name="valorTransportePublico" />
+                                    <label class="custom-control-label" for="valorTransportePublico">Transporte Público</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div *ngIf="valorTransportePublico" class="input-group">
+                                    <input class="form-control" currencyMask
+                                        [(ngModel)]="transporte.valorTransportePublico"
+                                        [ngModelOptions]="{standalone: true}" maxlength="20"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                     
+                </div>
+            </div>
+        </div>
+    </form>    
+</div>
