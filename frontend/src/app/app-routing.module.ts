@@ -1,3 +1,4 @@
+import { GraficoComponent } from './containers/pages/grafico/grafico.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutAlisson } from './containers/layout-full/layout.full.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
   {
     path: '', component: LayoutAlisson,
     children: [ 
+      { path: 'grafico', component: GraficoComponent },
       { path: 'categoria', component: CategoriaComponent },
       { path: 'entrar', component: EntrarComponent},
       {path: 'situacao/:id', component:  SituacaoComponent}

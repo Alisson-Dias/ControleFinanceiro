@@ -35,7 +35,6 @@ export class CategoriaComponent  implements OnInit  {
     id = sessionStorage.getItem('id');
 
         router: any;
-
         moradia: any;
         moradias: Array<any>;
 
